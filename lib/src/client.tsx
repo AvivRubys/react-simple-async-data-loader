@@ -4,7 +4,7 @@ const WINDOW_SSR_KEY = '_DATA_LOADER_SSR_DATA';
 
 declare global {
     interface Window {
-        [WINDOW_SSR_KEY]?: {[key: string]: unknown};
+        [WINDOW_SSR_KEY]?: {[key: string]: any};
     }
 }
 

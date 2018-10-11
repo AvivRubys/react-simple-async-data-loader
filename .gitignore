@@ -136,5 +136,7 @@ fabric.properties
 # *.ipr
 
 # Our stuff
-/build
+build
+dist
 .idea
+.rpt2_cache

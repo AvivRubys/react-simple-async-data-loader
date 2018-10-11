@@ -1,0 +1,23 @@
+{
+  "name": "react-simple-async-data-loader",
+  "version": "1.0.0",
+  "main": "dist/data-loader.js",
+  "module": "dist/data-loader.mjs",
+  "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "microbundle build --format es,cjs --strict"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.16",
+    "microbundle": "^0.6.0"
+  }
+}
