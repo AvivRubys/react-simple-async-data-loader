@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-type Loader = () => Promise<any>;
-type Loaders = {[key: string]: () => Promise<any>};
+export type Loader = () => Promise<any>;
 
 export enum ServerRenderingStage {
     Prefetch,
@@ -9,11 +8,12 @@ export enum ServerRenderingStage {
 }
 export interface PrefetchServerData {
     stage: ServerRenderingStage.Prefetch;
-    loaders: Loaders;
+    prefetch(key: string, loader: Loader): void;
 }
+
 export interface PostfetchServerData {
     stage: ServerRenderingStage.Postfetch;
-    data: {[key: string]: any};
+    getPrefetchedData<T = any>(key: string): T;
 }
 export type ServerData = PrefetchServerData | PostfetchServerData;
 export const ServerDataContainer = React.createContext<ServerData | null>(null);

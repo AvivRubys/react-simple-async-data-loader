@@ -1,2 +1,2 @@
 export {PrefetchRenderer} from './ServerDataLoader';
-export {AsyncLoader} from './AsyncLoader';
+export {AsyncLoader, LoadingStage} from './AsyncLoader';

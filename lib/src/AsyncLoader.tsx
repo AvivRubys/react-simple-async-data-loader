@@ -3,7 +3,7 @@ import * as React from 'react';
 import {ServerDataContainer, ServerRenderingStage, ServerData} from './ServerData';
 import {loadSsrData} from './client';
 
-enum LoadingStage {
+export enum LoadingStage {
     Pending = 'pending',
     Success = 'success',
     Failure = 'failure',
@@ -37,11 +37,11 @@ class DataLoader<Data = any> extends React.Component<DataLoaderProps<Data>, Data
 
         if (serverData) {
             if (serverData.stage === ServerRenderingStage.Prefetch) {
-                serverData.loaders[dataKey] = loader;
+                serverData.prefetch(dataKey, loader);
 
                 return {state: LoadingStage.Pending};
             } else {
-                return {result: serverData.data[dataKey] as Data, state: LoadingStage.Success};
+                return {result: serverData.getPrefetchedData<Data>(dataKey), state: LoadingStage.Success};
             }
         } else {
             const data = loadSsrData(dataKey) as Data;
