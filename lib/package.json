@@ -10,7 +10,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "microbundle build --format es,cjs --strict"
+    "build": "microbundle build --format es,cjs --strict",
+    "watch": "yarn tsc --noEmit --watch"
   },
   "dependencies": {
     "react": "^16.5.2",

@@ -1,12 +1,15 @@
 import * as React from 'react';
 
+type Loader = () => Promise<any>;
+type Loaders = {[key: string]: () => Promise<any>};
+
 export enum ServerRenderingStage {
     Prefetch,
     Postfetch,
 }
 export interface PrefetchServerData {
     stage: ServerRenderingStage.Prefetch;
-    loaders: {[key: string]: () => Promise<any>};
+    loaders: Loaders;
 }
 export interface PostfetchServerData {
     stage: ServerRenderingStage.Postfetch;

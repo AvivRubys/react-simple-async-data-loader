@@ -9,7 +9,7 @@ interface DataLoaderConfig<Props, Data> {
     propName: string;
 }
 
-export const hoc = <Props extends {}, Data extends {}>(config: DataLoaderConfig<Props, Data>) => (
+export const hoc = <Props extends {} = {}, Data extends {} = {}>(config: DataLoaderConfig<Props, Data>) => (
     WrappedComponent?: React.ComponentType<Props>
 ) => {
     if (!WrappedComponent) {
